@@ -43,7 +43,7 @@ export default class Player extends Pixi.Sprite {
         this.position.y += this.velocity.y
 
         // deceleration
-        this.velocity.x = 0
-        this.velocity.y = 0
+        this.velocity.x *= 0.75
+        this.velocity.y *= 0.75
     }
 }
