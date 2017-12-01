@@ -1,4 +1,6 @@
-# ... #
+# LD40 #
+
+A game for LD40! :D
 
 ### Getting Started ###
 
