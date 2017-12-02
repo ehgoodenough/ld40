@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class Dialogue : MonoBehaviour {
 
-    const float TRIGGER_DISTANCE = 5f;
+    const float TRIGGER_DISTANCE = 2f;
 
     private Text _textComponent;
 
