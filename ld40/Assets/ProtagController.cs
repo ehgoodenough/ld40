@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProtagController : MonoBehaviour {
+    Rigidbody body;
 
 	// Use this for initialization
 	void Start () {
-		
+        body = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -14,7 +15,7 @@ public class ProtagController : MonoBehaviour {
         Vector3 position = transform.position;
         Vector3 velocity = Vector3.zero;
         Vector3 moveDirection = Vector3.zero;
-        float maxMoveVelocity = 0.2f;
+        float maxMoveVelocity = 14f;
         if (Input.GetKey("a")){
             moveDirection += new Vector3(-1, 0, 0);
         }
@@ -31,7 +32,6 @@ public class ProtagController : MonoBehaviour {
             moveDirection += new Vector3(0, 0, -1);
         }
         velocity += moveDirection.normalized * maxMoveVelocity;
-        position += velocity;
-        transform.Translate(position - transform.position);
+        body.AddForce(velocity);
 	}
 }
