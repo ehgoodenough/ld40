@@ -53,8 +53,12 @@ public class Dialogue : MonoBehaviour {
     }
 
     public void LoadDialogueAsset (TextAsset asset) {
-        string text = DialogueAsset.text;
-        Strings.Add(text);
+        string[] lines = DialogueAsset.text.Split('\n');
+        foreach(string line in lines) {
+            if(line.Length > 0) {
+                Strings.Add(line);
+            }
+        }
     }
 
 	// Update is called once per frame
