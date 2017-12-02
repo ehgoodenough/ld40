@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blankScript : MonoBehaviour {
+public class PausePrompt : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,6 @@ public class blankScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		Debug.Log("nothing to see here");
+		Debug.Log("now this");
 	}
 }
