@@ -56,7 +56,7 @@ public class Dialogue : MonoBehaviour {
     {
         Strings.Clear();
         transform.parent.transform.parent.GetComponent<CanvasGroup>().alpha = 0;
-        Debug.Log("hi");
+        _isDialoguePlaying = false;
     }
 
 	// Update is called once per frame
