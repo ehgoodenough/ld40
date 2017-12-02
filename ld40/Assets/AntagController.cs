@@ -16,6 +16,10 @@ public class AntagController : MonoBehaviour {
 
     void OnTriggerEnter()
     {
-        GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
+        transform.GetChild(0).gameObject.SetActive(true) ;
+    }
+    void OnTriggerExit()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }
