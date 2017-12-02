@@ -43,12 +43,20 @@ public class Dialogue : MonoBehaviour {
     }
 
     public void LoadDialogueAsset (TextAsset asset) {
+        transform.parent.transform.parent.gameObject.SetActive(true);
         string[] lines = asset.text.Split('\n');
         foreach(string line in lines) {
             if(line.Length > 0) {
                 Strings.Add(line);
             }
         }
+    }
+
+    public void UnloadDialogueAsset ()
+    {
+        Strings.Clear();
+        transform.parent.transform.parent.gameObject.SetActive(false);
+        Debug.Log("hi");
     }
 
 	// Update is called once per frame

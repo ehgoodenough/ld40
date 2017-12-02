@@ -39,5 +39,6 @@ public class AntagController : MonoBehaviour {
     public void DeactivateDialogue()
     {
         transform.GetChild(0).gameObject.SetActive(false);
+        screenTextAsset.UnloadDialogueAsset();
     }
 }
