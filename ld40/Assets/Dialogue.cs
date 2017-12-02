@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 [RequireComponent(typeof(Text))]
 public class Dialogue : MonoBehaviour {
@@ -9,8 +10,6 @@ public class Dialogue : MonoBehaviour {
     const float TRIGGER_DISTANCE = 2f;
 
     private Text _textComponent;
-
-    public string[]  DialogueStrings;
 
     public float TimeBetweenCharacters = 0.05f;
     public float characterRate  = 0.5f;
@@ -24,14 +23,27 @@ public class Dialogue : MonoBehaviour {
 
     private GameObject dialoguePanel;
 
+    private List<string> Strings = new List<string>();
+    public string DialogueFile;
 
 
 	// Use this for initialization
 	void Start () {
 		_textComponent = GetComponent<Text>();
         _textComponent.text = " ";
-	}
-	
+
+        if(DialogueFile == "") {
+            Strings.Add("Error! Was not given Dialogue File :<");
+        } else {
+            string line;
+            StreamReader reader = new StreamReader(DialogueFile);
+            while((line = reader.ReadLine()) != null) {
+                Strings.Add(line);
+            }
+            reader.Close();
+        }
+    }
+
 	// Update is called once per frame
 	void Update () {
 
@@ -56,16 +68,16 @@ public class Dialogue : MonoBehaviour {
 
     private IEnumerator StartDialogue()
     {
-        int dialogueLength = DialogueStrings.Length;
+        int dialogueLength = Strings.Count;
         int currentDialogueIndex = 0;
-            
+
             while(currentDialogueIndex < dialogueLength || !_isStringBeingRevealed )
                 {
                     if(!_isStringBeingRevealed)
                         {
-                            
+
                          _isStringBeingRevealed = true;
-                StartCoroutine(DisplayString(DialogueStrings[currentDialogueIndex++]));
+                StartCoroutine(DisplayString(Strings[currentDialogueIndex++]));
 
                 if (currentDialogueIndex >= dialogueLength)
                 {

@@ -563,18 +563,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 402288cbea3afef45a2e63dbd5f7b9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueStrings:
-  - 'Hey, you there, ...   I know you '
-  - 'I''ve heard so much about you '
-  - 'In fact, didn''t we just pass each other at the haberdashery the other day? '
-  - 'Why you''re...     you are ...  '
-  - ' ugh I''m so bad with names '
-  - ' oh well... what about me? '
-  - ' Do You Even Know Who I Am?!'
   TimeBetweenCharacters: 0.05
   characterRate: 0.5
   continueText: {fileID: 28833579}
   stopText: {fileID: 734611603}
+  DialogueFile: Assets/antag.txt
 --- !u!114 &200860195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2224,10 +2217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 402288cbea3afef45a2e63dbd5f7b9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueStrings:
-  - Hello World!!
-  - How are you today?
   TimeBetweenCharacters: 0.05
   characterRate: 0.5
   continueText: {fileID: 142343631}
   stopText: {fileID: 165018289}
+  DialogueFile: Assets/antag.txt
