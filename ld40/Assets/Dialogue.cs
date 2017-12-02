@@ -109,7 +109,16 @@ public class Dialogue : MonoBehaviour {
     private IEnumerator DisplayString(string stringToDisplay)
     {
         int stringLength = stringToDisplay.Length;
-        int currentCharacterIndex = 0;
+        int currentCharacterIndex = stringToDisplay.IndexOf("]") + 1;
+
+        if(stringToDisplay[0] == '[') {
+            string[] commands = stringToDisplay.Substring(1, stringToDisplay.IndexOf("]") - 1).Split(',');
+            Debug.Log(commands[0]);
+            if(GameObject.Find("RawImage") != null) {
+                RawImage avatar = GameObject.Find("RawImage").GetComponent<RawImage>();
+                avatar.texture = Resources.Load(commands[0]) as Texture;
+            }
+        }
 
         HideStuff();
 
