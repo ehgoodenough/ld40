@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 223615348602955896}
   - component: {fileID: 114523811445198880}
   - component: {fileID: 114907925584196844}
+  - component: {fileID: 225226196593699106}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -264,7 +265,6 @@ MonoBehaviour:
   characterRate: 0.5
   continueText: {fileID: 1757603796512852}
   stopText: {fileID: 1277704441985164}
-  DialogueFile: Assets/Text/antag.txt
 --- !u!114 &114907925584196844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -471,3 +471,14 @@ RectTransform:
   m_AnchoredPosition: {x: -60, y: 0}
   m_SizeDelta: {x: 150, y: 250}
   m_Pivot: {x: 1, y: 0}
+--- !u!225 &225226196593699106
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505367132048594}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
