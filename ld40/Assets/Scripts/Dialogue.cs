@@ -52,23 +52,17 @@ public class Dialogue : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
-
-		GameObject player = GameObject.Find("Protag");
-        GameObject antag  = GameObject.Find("Antag");
-
-        if (Input.GetKey("space") && Strings.Count > 0)
+	void Update()
+    {
+        if(Input.GetKey("space") && Strings.Count > 0)
         {
             if(!_isDialoguePlaying)
-                        {
-                            _isDialoguePlaying = true;
-                            StartCoroutine(StartDialogue());
-
-                        }
-
-
-                }
-	        }
+            {
+                _isDialoguePlaying = true;
+                StartCoroutine(StartDialogue());
+            }
+        }
+    }
 
 
     private IEnumerator StartDialogue()
@@ -76,12 +70,11 @@ public class Dialogue : MonoBehaviour {
         int dialogueLength = Strings.Count;
         int currentDialogueIndex = 0;
 
-            while(currentDialogueIndex < dialogueLength || !_isStringBeingRevealed )
-                {
-                    if(!_isStringBeingRevealed)
-                        {
-
-                         _isStringBeingRevealed = true;
+        while(currentDialogueIndex < dialogueLength || !_isStringBeingRevealed )
+        {
+            if(!_isStringBeingRevealed)
+            {
+                _isStringBeingRevealed = true;
                 StartCoroutine(DisplayString(Strings[currentDialogueIndex++]));
 
                 if (currentDialogueIndex >= dialogueLength)
