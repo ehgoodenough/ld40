@@ -39,11 +39,11 @@ public class Dialogue : MonoBehaviour {
         //    }
         //    reader.Close();
         //}
-
+        transform.parent.transform.parent.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     public void LoadDialogueAsset (TextAsset asset) {
-        transform.parent.transform.parent.gameObject.SetActive(true);
+        transform.parent.transform.parent.GetComponent<CanvasGroup>().alpha = 1;
         string[] lines = asset.text.Split('\n');
         foreach(string line in lines) {
             if(line.Length > 0) {
@@ -55,7 +55,7 @@ public class Dialogue : MonoBehaviour {
     public void UnloadDialogueAsset ()
     {
         Strings.Clear();
-        transform.parent.transform.parent.gameObject.SetActive(false);
+        transform.parent.transform.parent.GetComponent<CanvasGroup>().alpha = 0;
         Debug.Log("hi");
     }
 

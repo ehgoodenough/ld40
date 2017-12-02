@@ -486,8 +486,28 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1505367132048594, guid: 8c5089c98a0d5fe46bae3a5f60a7c184, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950603236961758, guid: 8c5089c98a0d5fe46bae3a5f60a7c184, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5089c98a0d5fe46bae3a5f60a7c184, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2103715931 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1505367132048594, guid: 8c5089c98a0d5fe46bae3a5f60a7c184,
+    type: 2}
+  m_PrefabInternal: {fileID: 1822745301}
+--- !u!225 &2103715932
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2103715931}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
