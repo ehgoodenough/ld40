@@ -32,6 +32,7 @@ public class Dialogue : MonoBehaviour {
 		_textComponent = GetComponent<Text>();
         _textComponent.text = " ";
 
+        // Try to read from the file, if one was given.
         if(DialogueFile == "") {
             Strings.Add("Error! Was not given Dialogue File :<");
         } else {
