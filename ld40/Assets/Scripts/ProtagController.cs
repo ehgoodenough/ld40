@@ -19,5 +19,6 @@ public class ProtagController : MonoBehaviour {
         moveDirection += new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         velocity += moveDirection.normalized * maxMoveVelocity;
         body.AddForce(velocity);
+        transform.LookAt(transform.position + body.velocity);
 	}
 }
