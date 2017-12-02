@@ -24,28 +24,21 @@ public class Dialogue : MonoBehaviour {
     private GameObject dialoguePanel;
 
     private List<string> Strings = new List<string>();
-    public string DialogueFile;
-    public TextAsset DialogueAsset;
-
 
 	// Use this for initialization
 	void Start () {
 		_textComponent = GetComponent<Text>();
         _textComponent.text = " ";
 
-        // Try to read from the file, if one was given.
-        if(DialogueFile != "") {
-            string line;
-            StreamReader reader = new StreamReader(DialogueFile);
-            while((line = reader.ReadLine()) != null) {
-                Strings.Add(line);
-            }
-            reader.Close();
-        }
-
-        if(DialogueAsset != null) {
-            LoadDialogueAsset(DialogueAsset);
-        }
+        //// Try to read from the file, if one was given.
+        //if(DialogueFile != "") {
+        //    string line;
+        //    StreamReader reader = new StreamReader(DialogueFile);
+        //    while((line = reader.ReadLine()) != null) {
+        //        Strings.Add(line);
+        //    }
+        //    reader.Close();
+        //}
 
         if(Strings.Count == 0) {
             Strings.Add("Error! Was not given Dialogue File :<");
@@ -53,7 +46,7 @@ public class Dialogue : MonoBehaviour {
     }
 
     public void LoadDialogueAsset (TextAsset asset) {
-        string text = DialogueAsset.text;
+        string text = asset.text;
         Strings.Add(text);
     }
 

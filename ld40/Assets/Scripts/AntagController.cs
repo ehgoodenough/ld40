@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AntagController : MonoBehaviour {
+    public TextAsset myDialogue;
     Dialogue screenTextAsset;
 
     // Use this for initialization
@@ -17,18 +18,19 @@ public class AntagController : MonoBehaviour {
 
     void OnTriggerEnter()
     {
-        activateDialogue();
+        ActivateDialogue();
     }
     void OnTriggerExit()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
+        DeactivateDialogue();
     }
 
-    public void activateDialogue()
+    public void ActivateDialogue()
     {
         transform.GetChild(0).gameObject.SetActive(true);
+        screenTextAsset.LoadDialogueAsset(myDialogue);
     }
-    public void deactivateDialogue()
+    public void DeactivateDialogue()
     {
         transform.GetChild(0).gameObject.SetActive(false);
     }
