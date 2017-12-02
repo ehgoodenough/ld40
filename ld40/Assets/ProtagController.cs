@@ -13,21 +13,24 @@ public class ProtagController : MonoBehaviour {
 	void Update () {
         Vector3 position = transform.position;
         Vector3 velocity = Vector3.zero;
+        Vector3 moveDirection = Vector3.zero;
+        float maxMoveVelocity = 0.2f;
         if (Input.GetKey("a")){
-            velocity += new Vector3(-0.2f, 0, 0);
+            moveDirection += new Vector3(-1, 0, 0);
         }
         if (Input.GetKey("d"))
         {
-            velocity += new Vector3(0.2f, 0, 0);
+            moveDirection += new Vector3(1, 0, 0);
         }
         if (Input.GetKey("w"))
         {
-            velocity += new Vector3(0, 0, 0.2f);
+            moveDirection += new Vector3(0, 0, 1);
         }
         if (Input.GetKey("s"))
         {
-            velocity += new Vector3(0, 0, -0.2f);
+            moveDirection += new Vector3(0, 0, -1);
         }
+        velocity += moveDirection.normalized * maxMoveVelocity;
         position += velocity;
         transform.Translate(position - transform.position);
 	}
