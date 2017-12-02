@@ -16,21 +16,7 @@ public class ProtagController : MonoBehaviour {
         Vector3 velocity = Vector3.zero;
         Vector3 moveDirection = Vector3.zero;
         float maxMoveVelocity = 14f;
-        if (Input.GetKey("a")){
-            moveDirection += new Vector3(-1, 0, 0);
-        }
-        if (Input.GetKey("d"))
-        {
-            moveDirection += new Vector3(1, 0, 0);
-        }
-        if (Input.GetKey("w"))
-        {
-            moveDirection += new Vector3(0, 0, 1);
-        }
-        if (Input.GetKey("s"))
-        {
-            moveDirection += new Vector3(0, 0, -1);
-        }
+        moveDirection += new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         velocity += moveDirection.normalized * maxMoveVelocity;
         body.AddForce(velocity);
 	}
