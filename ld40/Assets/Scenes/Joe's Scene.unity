@@ -1175,7 +1175,8 @@ MonoBehaviour:
   characterRate: 0.5
   continueText: {fileID: 1183964303}
   stopText: {fileID: 496762494}
-  DialogueFile: Assets/antag.txt
+  DialogueFile: Assets/Text/antag.txt
+  thing: {fileID: 0}
 --- !u!114 &1302020363
 MonoBehaviour:
   m_ObjectHideFlags: 0
