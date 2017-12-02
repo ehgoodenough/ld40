@@ -16,13 +16,19 @@ public class AntagController : MonoBehaviour {
 		
 	}
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-        ActivateDialogue();
+        if(other.name == "Protag")
+        {
+            ActivateDialogue();
+        }
     }
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
-        DeactivateDialogue();
+        if (other.name == "Protag")
+        {
+            DeactivateDialogue();
+        }
     }
 
     public void ActivateDialogue()

@@ -40,14 +40,15 @@ public class Dialogue : MonoBehaviour {
         //    reader.Close();
         //}
 
-        if(Strings.Count == 0) {
-            Strings.Add("Error! Was not given Dialogue File :<");
-        }
     }
 
     public void LoadDialogueAsset (TextAsset asset) {
-        string text = asset.text;
-        Strings.Add(text);
+        string[] lines = asset.text.Split('\n');
+        foreach(string line in lines) {
+            if(line.Length > 0) {
+                Strings.Add(line);
+            }
+        }
     }
 
 	// Update is called once per frame
@@ -56,9 +57,7 @@ public class Dialogue : MonoBehaviour {
 		GameObject player = GameObject.Find("Protag");
         GameObject antag  = GameObject.Find("Antag");
 
-         if (Mathf.Abs(player.transform.position.x - antag.transform.position.x) < TRIGGER_DISTANCE
-        && Mathf.Abs(player.transform.position.y - antag.transform.position.y) < TRIGGER_DISTANCE
-        && Input.GetKey("space"))
+        if (Input.GetKey("space") && Strings.Count > 0)
         {
             if(!_isDialoguePlaying)
                         {
