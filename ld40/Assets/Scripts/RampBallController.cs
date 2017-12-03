@@ -27,6 +27,8 @@ public class RampBallController : MonoBehaviour
             if (age > lifespan)
             {
                 transform.position = startingPosition;
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 age = 0;
             }
         }
