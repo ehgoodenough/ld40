@@ -40,7 +40,7 @@ public class PusherPuzzleController : MonoBehaviour {
         if(score >= 5)
         {
             complete = true;
-            titles.earnTitle("The Punctual Pusher");
+            titles.earnTitle("The Periodic Pusher");
         }
     }
 }
