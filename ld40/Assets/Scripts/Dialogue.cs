@@ -44,6 +44,7 @@ public class Dialogue : MonoBehaviour {
     }
 
     public void LoadDialogueAsset (TextAsset asset) {
+        Strings.Clear();
         transform.parent.transform.parent.GetComponent<CanvasGroup>().alpha = 1;
         string[] lines = asset.text.Split('\n');
         foreach(string line in lines) {
