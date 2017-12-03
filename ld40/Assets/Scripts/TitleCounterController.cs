@@ -6,7 +6,7 @@ public class TitleCounterController : MonoBehaviour {
 	public TextAsset dialogue;
 	private Dialogue dialogueUI;
 	private TitlesController titles;
-	private Rigidbody rigidbody;
+	private Rigidbody body;
 
 	private bool isWithinRange = false;
 	private bool hasBeenDefeated = false;
@@ -14,40 +14,30 @@ public class TitleCounterController : MonoBehaviour {
 	void Start() {
 		dialogueUI = GameObject.Find("Dialogue Text").GetComponent<Dialogue>();
 		titles = GameObject.Find("Titles").GetComponent<TitlesController>();
-		rigidbody = GetComponent<Rigidbody>();
-	}
-
-	void Update() {
-		if(isWithinRange) {
-			if(Input.GetKeyDown("space")) {
-
-				if(titles.getTitleCount() >= 3) {
-					if(hasBeenDefeated == false) {
-						hasBeenDefeated = true;
-						rigidbody.isKinematic = false;
-						rigidbody.AddTorque(Vector3.up * 50f);
-		   				rigidbody.AddTorque(Vector3.right * 300f);
-						rigidbody.AddForce((Vector3.back * -1000f));
-					}
-					Debug.Log("Good!!");
-				} else {
-					Debug.Log("Not yet :\\");
-				}
-			}
-		}
+		body = GetComponent<Rigidbody>();
 	}
 
 	void OnTriggerEnter(Collider collider) {
         if(collider.name == "Protag") {
 			dialogueUI.LoadDialogueAsset(dialogue);
-			isWithinRange = true;
         }
     }
 
 	void OnTriggerExit(Collider collider) {
         if(collider.name == "Protag") {
 			dialogueUI.UnloadDialogueAsset();
-			isWithinRange = false;
         }
     }
+
+	public void OnDialogueDone() {
+		if(titles.getTitleCount() >= 3) {
+			if(hasBeenDefeated == false) {
+				hasBeenDefeated = true;
+				body.isKinematic = false;
+				body.AddTorque(Vector3.up * 50f);
+				body.AddTorque(Vector3.right * 300f);
+				body.AddForce((Vector3.back * -1000f));
+			}
+		}
+	}
 }
