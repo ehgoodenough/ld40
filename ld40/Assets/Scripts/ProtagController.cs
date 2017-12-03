@@ -58,7 +58,7 @@ public class ProtagController : MonoBehaviour {
             
  //       Debug.Log(keys.Count);
  //         Debug.Log(faded);
-            Debug.Log(particleCooldown);
+            //Debug.Log(particleCooldown);
 
     }
 
@@ -66,7 +66,7 @@ public class ProtagController : MonoBehaviour {
             
                 if(coll.gameObject.tag == "collectible")
 		{
-			 Debug.Log("collect it ");
+			 //Debug.Log("collect it ");
                 
                 playerInventory.GetComponent<CanvasGroup>().alpha = 1f;
                 faded = false;
