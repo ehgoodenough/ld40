@@ -11,6 +11,9 @@ public class ProtagController : MonoBehaviour {
     GameObject playerInventory;
     private bool faded;
 
+    private TitlesController titles;
+
+
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody>();
@@ -18,6 +21,10 @@ public class ProtagController : MonoBehaviour {
     
         keys = new List<GameObject>();
         playerInventory = GameObject.Find("InventoryGrid");
+        playerInventory.GetComponent<CanvasGroup>().alpha = 0f;
+
+        titles = GameObject.Find("Titles").GetComponent<TitlesController>();
+
 
 	}
 	
@@ -63,14 +70,17 @@ public class ProtagController : MonoBehaviour {
                 {
                 GameObject newSlot = Instantiate(GameObject.Find("Slot"));
                 newSlot.transform.parent = GameObject.Find("Slot Panel").transform;
-                newSlot.transform.localScale = new Vector3(1, 1, 1);
+                newSlot.transform.localScale = new Vector3(2, 2, 2);
                 keys.Add(newSlot);
                 } else {
                         keys.Add(GameObject.Find("Slot"));
+                        titles.earnTitle("Collector of Things");
                         }
-                
-                
             //if(coll.gameObject.tag == "key")
+                if(keys.Count == 5)
+                {
+                    titles.earnTitle("Le Charmant Collector");
+                }
 
 		}                 
           
@@ -83,7 +93,7 @@ public class ProtagController : MonoBehaviour {
                         
                         if(!faded) 
                                 {
-                                playerInventory.GetComponent<CanvasGroup>().alpha -= .01f * Time.deltaTime * 60;
+                                playerInventory.GetComponent<CanvasGroup>().alpha -= .005f * Time.deltaTime * 60;
                                 // Debug.Log("it is fading");
                                 }
 
