@@ -73,7 +73,6 @@ public class Dialogue : MonoBehaviour {
         }
     }
 
-
     private IEnumerator StartDialogue()
     {
         int dialogueLength = Strings.Count;
