@@ -6,11 +6,14 @@ public class ProtagController : MonoBehaviour {
     Rigidbody body;
     float moveForce;
     float maxVelocity;
+    List<GameObject> keys;
 
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody>();
         maxVelocity = 30f;
+    
+        keys = new List<GameObject>();
 	}
 	
 	// Update is called once per frame
@@ -33,6 +36,9 @@ public class ProtagController : MonoBehaviour {
         {
             transform.LookAt(transform.position + body.velocity);
         }
+
+ //       Debug.Log(keys.Count);
+
     }
 
     void OnCollisionEnter(Collision coll) {
@@ -44,6 +50,13 @@ public class ProtagController : MonoBehaviour {
                 GameObject newSlot = Instantiate(GameObject.Find("Slot"));
                 newSlot.transform.parent = GameObject.Find("Slot Panel").transform;
                 newSlot.transform.localScale = new Vector3(1, 1, 1);
+
+                keys.Add(newSlot);
+                
+            //if(coll.gameObject.tag == "key")
+            //    {
+            //       keys.Add(newSlot);
+            //    }
 		}                  
           
     }

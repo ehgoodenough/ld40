@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Hover : MonoBehaviour {
 
-    public GameObject dialogueTextBox;
+    public GameObject AlertIcon;
     private bool scaleDown;
+    
+    public Vector3 IconScale = new Vector3(.41f, .41f, .41f);
 
 	// Use this for initialization
 	void Start () {
-		
+		AlertIcon.transform.localScale = IconScale;
 	}
 	
 	// Update is called once per frame
@@ -18,12 +20,12 @@ public class Hover : MonoBehaviour {
             if(scaleDown == false)
             {
 
-                   if(transform.localScale.x > .012f && transform.localScale.x < .014f)
+                   if(transform.localScale.x > .4f && transform.localScale.x < .6f)
                     {
-		                dialogueTextBox.transform.localScale += new Vector3(0.00005F, 0.00005F, 0);
+		                AlertIcon.transform.localScale += new Vector3(0.005F, 0.005F, 0);
                     }
 
-                    if(transform.localScale.x > .014f)
+                    if(transform.localScale.x > .6f)
                     {
                       scaleDown = true;
                     }
@@ -33,9 +35,9 @@ public class Hover : MonoBehaviour {
              if(scaleDown)
             {
                                
-                dialogueTextBox.transform.localScale -= new Vector3(0.00005F, 0.00005F, 0);
+                AlertIcon.transform.localScale -= new Vector3(0.005F, 0.005F, 0);
                 
-                if(transform.localScale.x < 0.0125f)
+                if(transform.localScale.x < 0.42f)
                    {
                     scaleDown = false;
                    }
