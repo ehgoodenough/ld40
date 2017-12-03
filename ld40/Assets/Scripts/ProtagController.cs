@@ -13,6 +13,9 @@ public class ProtagController : MonoBehaviour {
 
     private TitlesController titles;
 
+    ParticleSystem  celebrateGoodTimes;
+    private float particleCooldown;
+
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +27,8 @@ public class ProtagController : MonoBehaviour {
         playerInventory.GetComponent<CanvasGroup>().alpha = 0f;
 
         titles = GameObject.Find("Titles").GetComponent<TitlesController>();
+        celebrateGoodTimes = GameObject.Find("Main Camera").GetComponent<ParticleSystem>();
+        celebrateGoodTimes.Pause();
 
 
 	}
@@ -53,6 +58,7 @@ public class ProtagController : MonoBehaviour {
             
  //       Debug.Log(keys.Count);
  //         Debug.Log(faded);
+            Debug.Log(particleCooldown);
 
     }
 
@@ -74,12 +80,15 @@ public class ProtagController : MonoBehaviour {
                 keys.Add(newSlot);
                 } else {
                         keys.Add(GameObject.Find("Slot"));
-                        titles.earnTitle("Collector of Things");
+                        titles.earnTitle("Collector of Things");                                                
                         }
             //if(coll.gameObject.tag == "key")
                 if(keys.Count == 5)
                 {
                     titles.earnTitle("Le Charmant Collector");
+                     celebrateGoodTimes.Play();
+                     particleCooldown = 10; 
+                            
                 }
 
 		}                 
@@ -88,18 +97,29 @@ public class ProtagController : MonoBehaviour {
          // fading out the alpha of the canvas
          void fadeOut()  {
                             
-                        if(faded)
-                            return;
+                            if(faded)
+                                return;
                         
-                        if(!faded) 
-                                {
-                                playerInventory.GetComponent<CanvasGroup>().alpha -= .005f * Time.deltaTime * 60;
-                                // Debug.Log("it is fading");
-                                }
+                            if(!faded) 
+                                    {
+                                    playerInventory.GetComponent<CanvasGroup>().alpha -= .005f * Time.deltaTime * 60;
+                                    // Debug.Log("it is fading");
+                                    }
 
-                         if(playerInventory.GetComponent<CanvasGroup>().alpha <= .001f)
+                             if(playerInventory.GetComponent<CanvasGroup>().alpha <= .001f)
+                                    {
+                                        faded = true;
+                                
+                                    }
+                             if(celebrateGoodTimes.isPlaying)
                                 {
-                                    faded = true;
-                                }                
+                                    particleCooldown -= .05f * Time.deltaTime * 60;    
+
+                                    if(particleCooldown <= 0)
+                                    {
+                                     celebrateGoodTimes.Stop();
+                                    }
+                                }   
+                                      
                           } 
 }
