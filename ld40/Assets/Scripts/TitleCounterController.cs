@@ -20,31 +20,33 @@ public class TitleCounterController : MonoBehaviour {
 	void Update() {
 		if(isWithinRange) {
 			if(Input.GetKeyDown("space")) {
-				if(hasBeenDefeated == false) {
-					hasBeenDefeated = true;
-					rigidbody.isKinematic = false;
-					rigidbody.AddTorque(Vector3.up * 50f);
-	   				rigidbody.AddTorque(Vector3.right * 300f);
-					rigidbody.AddForce((Vector3.back * -1000f));
+
+				if(titles.getTitleCount() >= 3) {
+					if(hasBeenDefeated == false) {
+						hasBeenDefeated = true;
+						rigidbody.isKinematic = false;
+						rigidbody.AddTorque(Vector3.up * 50f);
+		   				rigidbody.AddTorque(Vector3.right * 300f);
+						rigidbody.AddForce((Vector3.back * -1000f));
+					}
+					Debug.Log("Good!!");
+				} else {
+					Debug.Log("Not yet :\\");
 				}
-				// if(titles.getTitleCount() >= 3) {
-				// 	Debug.Log("Good!!");
-				// } else {
-				// 	Debug.Log("Not yet :\\");
-				// }
-				// dialogueUI.LoadDialogueAsset(dialogue);
 			}
 		}
 	}
 
 	void OnTriggerEnter(Collider collider) {
         if(collider.name == "Protag") {
+			dialogueUI.LoadDialogueAsset(dialogue);
 			isWithinRange = true;
         }
     }
 
 	void OnTriggerExit(Collider collider) {
         if(collider.name == "Protag") {
+			dialogueUI.UnloadDialogueAsset();
 			isWithinRange = false;
         }
     }
