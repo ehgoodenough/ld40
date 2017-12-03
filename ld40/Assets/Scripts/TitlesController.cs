@@ -10,6 +10,8 @@ public class TitlesController : MonoBehaviour {
 	private Text score;
 	private Text status;
 
+    public GameObject lastDoor;
+
 	private const int MAXIMUM_TITLES = 10;
 	private Dictionary<string, bool> titles = new Dictionary<string, bool>();
 
@@ -20,31 +22,23 @@ public class TitlesController : MonoBehaviour {
 	void Start() {
 		this.score = transform.Find("Score").GetComponent<Text>();
 		this.status = transform.Find("Status").GetComponent<Text>();
-
+        this.status.text = "Who are you?";
         celebrateGoodTimes = GameObject.Find("Main Camera").GetComponent<ParticleSystem>();
         celebrateGoodTimes.Pause();
+    }
 
-	}
 
 	void Update() {
-		this.score.text = titles.Count + "/" + MAXIMUM_TITLES;
-
-		if(titles.Count == 0) {
-			this.status.text = "Who are you?";
-		} else {
-			this.status.text = "You are ";
-			this.status.text += String.Join(", ", titles.Keys.ToArray());
-		}
 
         if(celebrateGoodTimes.isPlaying)
-                                {
-                                    particleCooldown -= .05f * Time.deltaTime * 60;    
+        {
+            particleCooldown -= .05f * Time.deltaTime * 60;    
 
-                                    if(particleCooldown <= 0)
-                                    {
-                                     celebrateGoodTimes.Stop();
-                                    }
-                                }   
+            if(particleCooldown <= 0)
+            {
+                celebrateGoodTimes.Stop();
+            }
+        }   
 	}
 
 	public bool hasEarnedTitle(string title) {
@@ -54,12 +48,42 @@ public class TitlesController : MonoBehaviour {
 	public void earnTitle(string title) {
 		if(hasEarnedTitle(title) == false) {
 			titles.Add(title, true);
+
             celebrateGoodTimes.Play();
             particleCooldown = 10; 
-		}
-	}
 
-	public int getTitleCount() {
+            if (getTitleCount() >= 2)
+            {
+                lastDoor.GetComponent<DoorScript>().unlock();
+            }
+            this.score.text = titles.Count + "/" + MAXIMUM_TITLES;
+
+            this.status.text = "You are ";
+            String[] phrases = titles.Keys.ToArray();
+            for(int i = 0; i < phrases.Length; i++)
+            {
+                if(i != 0)
+                {
+                    this.status.text += ",\n" + phrases[i];
+                }
+                else
+                {
+                    this.status.text += phrases[i];
+                }
+            }
+            //this.status.text += String.Join(", ", titles.Keys.ToArray());
+        }
+
+
+    }
+
+    public int getTitleCount() {
 		return titles.Count;
 	}
+
+    public void win()
+    {
+        this.status.text = "\n You are The Winner!!!!!! :] Nice job, mate!";
+        this.status.GetComponent<Text>().fontSize = 40;
+    }
 }
