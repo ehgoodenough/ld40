@@ -32,13 +32,13 @@ public class TitlesController : MonoBehaviour {
 
         if(celebrateGoodTimes.isPlaying)
         {
-            particleCooldown -= .05f * Time.deltaTime * 60;    
+            particleCooldown -= .05f * Time.deltaTime * 60;
 
             if(particleCooldown <= 0)
             {
                 celebrateGoodTimes.Stop();
             }
-        }   
+        }
 	}
 
 	public bool hasEarnedTitle(string title) {
@@ -50,7 +50,7 @@ public class TitlesController : MonoBehaviour {
 			titles.Add(title, true);
 
             celebrateGoodTimes.Play();
-            particleCooldown = 10; 
+            particleCooldown = 10;
 
             if (getTitleCount() >= 2)
             {
@@ -58,20 +58,8 @@ public class TitlesController : MonoBehaviour {
             }
             this.score.text = titles.Count + "/" + MAXIMUM_TITLES;
 
-            this.status.text = "You are ";
-            String[] phrases = titles.Keys.ToArray();
-            for(int i = 0; i < phrases.Length; i++)
-            {
-                if(i != 0)
-                {
-                    this.status.text += ",\n" + phrases[i];
-                }
-                else
-                {
-                    this.status.text += phrases[i];
-                }
-            }
-            //this.status.text += String.Join(", ", titles.Keys.ToArray());
+            this.status.text = "You are\n";
+            this.status.text += String.Join("\n", titles.Keys.ToArray());
         }
 
 
