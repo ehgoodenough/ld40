@@ -34,4 +34,18 @@ public class ProtagController : MonoBehaviour {
             transform.LookAt(transform.position + body.velocity);
         }
     }
+
+    void OnCollisionEnter(Collision coll) {
+            
+                if(coll.gameObject.tag == "collectible")
+		{
+			 Debug.Log("collect it ");
+                Destroy(coll.gameObject);
+                GameObject newSlot = Instantiate(GameObject.Find("Slot"));
+                newSlot.transform.parent = GameObject.Find("Slot Panel").transform;
+                newSlot.transform.localScale = new Vector3(1, 1, 1);
+		}                  
+          
+    }
+
 }
