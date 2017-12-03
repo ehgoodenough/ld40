@@ -38,4 +38,8 @@ public class TitlesController : MonoBehaviour {
 			titles.Add(title, true);
 		}
 	}
+
+	public int getTitleCount() {
+		return titles.Count;
+	}
 }
