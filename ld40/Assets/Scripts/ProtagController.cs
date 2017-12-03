@@ -8,12 +8,17 @@ public class ProtagController : MonoBehaviour {
     float maxVelocity;
     List<GameObject> keys;
 
+    GameObject playerInventory;
+    private bool faded;
+
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody>();
         maxVelocity = 30f;
     
         keys = new List<GameObject>();
+        playerInventory = GameObject.Find("InventoryGrid");
+
 	}
 	
 	// Update is called once per frame
@@ -37,7 +42,10 @@ public class ProtagController : MonoBehaviour {
             transform.LookAt(transform.position + body.velocity);
         }
 
+        fadeOut();
+            
  //       Debug.Log(keys.Count);
+ //         Debug.Log(faded);
 
     }
 
@@ -46,19 +54,42 @@ public class ProtagController : MonoBehaviour {
                 if(coll.gameObject.tag == "collectible")
 		{
 			 Debug.Log("collect it ");
+                
+                playerInventory.GetComponent<CanvasGroup>().alpha = 1f;
+                faded = false;
                 Destroy(coll.gameObject);
+                
+                if(keys.Count > 0)
+                {
                 GameObject newSlot = Instantiate(GameObject.Find("Slot"));
                 newSlot.transform.parent = GameObject.Find("Slot Panel").transform;
                 newSlot.transform.localScale = new Vector3(1, 1, 1);
-
                 keys.Add(newSlot);
+                } else {
+                        keys.Add(GameObject.Find("Slot"));
+                        }
+                
                 
             //if(coll.gameObject.tag == "key")
-            //    {
-            //       keys.Add(newSlot);
-            //    }
-		}                  
+
+		}                 
           
     }
+         // fading out the alpha of the canvas
+         void fadeOut()  {
+                            
+                        if(faded)
+                            return;
+                        
+                        if(!faded) 
+                                {
+                                playerInventory.GetComponent<CanvasGroup>().alpha -= .01f * Time.deltaTime * 60;
+                                // Debug.Log("it is fading");
+                                }
 
+                         if(playerInventory.GetComponent<CanvasGroup>().alpha <= .001f)
+                                {
+                                    faded = true;
+                                }                
+                          } 
 }
