@@ -19,6 +19,11 @@ public class HoleController : MonoBehaviour {
 			ball.GetComponent<Rigidbody>().isKinematic = true;
 			ball.transform.position = transform.position;
 			ball.transform.localScale = new Vector3(2f, 2f, 2f);
+            if(ball.name == "Purple Ball")
+            {
+                RampBallController ballScript = ball.GetComponent<RampBallController>();
+                ballScript.Cease();
+            }
 
 			titles.earnTitle(title);
 		}
