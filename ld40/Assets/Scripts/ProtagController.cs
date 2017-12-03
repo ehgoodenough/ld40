@@ -8,12 +8,29 @@ public class ProtagController : MonoBehaviour {
     float maxVelocity;
     List<GameObject> keys;
 
+    GameObject playerInventory;
+    private bool faded;
+
+    private TitlesController titles;
+
+    ParticleSystem  celebrateGoodTimes;
+    private float particleCooldown;
+
+
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody>();
         maxVelocity = 30f;
     
         keys = new List<GameObject>();
+        playerInventory = GameObject.Find("InventoryGrid");
+        playerInventory.GetComponent<CanvasGroup>().alpha = 0f;
+
+        titles = GameObject.Find("Titles").GetComponent<TitlesController>();
+        celebrateGoodTimes = GameObject.Find("Main Camera").GetComponent<ParticleSystem>();
+        celebrateGoodTimes.Pause();
+
+
 	}
 	
 	// Update is called once per frame
@@ -37,7 +54,11 @@ public class ProtagController : MonoBehaviour {
             transform.LookAt(transform.position + body.velocity);
         }
 
+        fadeOut();
+            
  //       Debug.Log(keys.Count);
+ //         Debug.Log(faded);
+            Debug.Log(particleCooldown);
 
     }
 
@@ -46,19 +67,59 @@ public class ProtagController : MonoBehaviour {
                 if(coll.gameObject.tag == "collectible")
 		{
 			 Debug.Log("collect it ");
+                
+                playerInventory.GetComponent<CanvasGroup>().alpha = 1f;
+                faded = false;
                 Destroy(coll.gameObject);
+                
+                if(keys.Count > 0)
+                {
                 GameObject newSlot = Instantiate(GameObject.Find("Slot"));
                 newSlot.transform.parent = GameObject.Find("Slot Panel").transform;
-                newSlot.transform.localScale = new Vector3(1, 1, 1);
-
+                newSlot.transform.localScale = new Vector3(2, 2, 2);
                 keys.Add(newSlot);
-                
+                } else {
+                        keys.Add(GameObject.Find("Slot"));
+                        titles.earnTitle("Collector of Things");                                                
+                        }
             //if(coll.gameObject.tag == "key")
-            //    {
-            //       keys.Add(newSlot);
-            //    }
-		}                  
+                if(keys.Count == 5)
+                {
+                    titles.earnTitle("Le Charmant Collector");
+                     celebrateGoodTimes.Play();
+                     particleCooldown = 10; 
+                            
+                }
+
+		}                 
           
     }
+         // fading out the alpha of the canvas
+         void fadeOut()  {
+                            
+                            if(faded)
+                                return;
+                        
+                            if(!faded) 
+                                    {
+                                    playerInventory.GetComponent<CanvasGroup>().alpha -= .005f * Time.deltaTime * 60;
+                                    // Debug.Log("it is fading");
+                                    }
 
+                             if(playerInventory.GetComponent<CanvasGroup>().alpha <= .001f)
+                                    {
+                                        faded = true;
+                                
+                                    }
+                             if(celebrateGoodTimes.isPlaying)
+                                {
+                                    particleCooldown -= .05f * Time.deltaTime * 60;    
+
+                                    if(particleCooldown <= 0)
+                                    {
+                                     celebrateGoodTimes.Stop();
+                                    }
+                                }   
+                                      
+                          } 
 }
