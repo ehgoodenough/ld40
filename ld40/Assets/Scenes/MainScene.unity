@@ -2458,21 +2458,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 54243962133196290, guid: 242eaae8066a4124a8e2b64db13d9b6b,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54243962133196290, guid: 242eaae8066a4124a8e2b64db13d9b6b,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 54243962133196290, guid: 242eaae8066a4124a8e2b64db13d9b6b,
-        type: 2}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 242eaae8066a4124a8e2b64db13d9b6b, type: 2}
   m_IsPrefabParent: 0
