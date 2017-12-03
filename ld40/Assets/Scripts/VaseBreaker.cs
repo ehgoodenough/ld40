@@ -5,6 +5,7 @@ using UnityEngine;
 public class VaseBreaker : MonoBehaviour {
 
 	private TitlesController titles;
+    public GameObject door;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class VaseBreaker : MonoBehaviour {
         if(theCollision.collider.name != "Pedestal")
         {
 			titles.earnTitle("Breaker of Vases");
+            door.GetComponent<DoorScript>().unlock();
             GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
         }
     }
