@@ -39,7 +39,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4953916904075614}
   - component: {fileID: 33754963484357182}
-  - component: {fileID: 64349974309142996}
   - component: {fileID: 23903654536176652}
   - component: {fileID: 114385740808104538}
   m_Layer: 0
@@ -92,7 +91,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4265856512003368}
   - component: {fileID: 33358301756184782}
-  - component: {fileID: 64140119864176470}
   - component: {fileID: 23839963677494644}
   - component: {fileID: 114760828423380426}
   m_Layer: 0
@@ -365,34 +363,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64140119864176470
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1917648269008762}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64349974309142996
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1190850791659128}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114385740808104538
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,8 +18,12 @@ public class TitlesController : MonoBehaviour {
 		this.ui.text = titles.Count + "/" + MAXIMUM_TITLES;
 	}
 
+	public bool hasEarnedTitle(string title) {
+		return titles.ContainsKey(title);
+	}
+
 	public void earnTitle(string title) {
-		if(!titles.ContainsKey(title)) {
+		if(hasEarnedTitle(title) == false) {
 			titles.Add(title, true);
 		}
 	}
