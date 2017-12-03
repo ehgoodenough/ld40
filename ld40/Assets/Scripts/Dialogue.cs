@@ -23,6 +23,7 @@ public class Dialogue : MonoBehaviour {
 
     private GameObject dialoguePanel;
 
+
     private List<string> Strings = new List<string>();
 
 	// Use this for initialization
@@ -54,7 +55,6 @@ public class Dialogue : MonoBehaviour {
 
     public void UnloadDialogueAsset ()
     {
-        Strings.Clear();
         transform.parent.transform.parent.GetComponent<CanvasGroup>().alpha = 0;
         _isDialoguePlaying = false;
     }
@@ -62,6 +62,7 @@ public class Dialogue : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
     {
+
         if(Input.GetKey("space") && Strings.Count > 0)
         {
             if(!_isDialoguePlaying)
@@ -183,6 +184,7 @@ public class Dialogue : MonoBehaviour {
         if (_isEndofDialogue)
         {
             stopText.SetActive(true);
+            Debug.Log("this happened");
             return;
         }
 
