@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1171879891694052}
+  title: Bridger of Red Holes
 --- !u!114 &114760828423380426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,6 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1611856697077334}
+  title: Bridger of Green Holes
 --- !u!135 &135443038926244420
 SphereCollider:
   m_ObjectHideFlags: 1
