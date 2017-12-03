@@ -26,10 +26,19 @@ public class MatchBlockController : MonoBehaviour {
 		uDifference = uBlockExpected.transform.localPosition - uDifference;
 
 		if(Mathf.Abs(biglDifference.x) < 0.25
+		&& Mathf.Abs(biglDifference.z) < 0.25) {
+			Debug.Log("!!");
+		}
+
+		if(Mathf.Abs(biglDifference.x) < 0.25
 		&& Mathf.Abs(biglDifference.z) < 0.25
 		&& Mathf.Abs(uDifference.x) < 0.25
 		&& Mathf.Abs(uDifference.z) < 0.25) {
 			titles.earnTitle("Master Crest Builder");
+
+			// Destroy(GetComponent<Rigidbody>());
+			// Destroy(biglBlock.GetComponent<Rigidbody>());
+			// Destroy(uBlock.GetComponent<Rigidbody>());
 		}
 	}
 }
