@@ -11,8 +11,8 @@ public class Dialogue : MonoBehaviour {
 
     private Text _textComponent;
 
-    public float TimeBetweenCharacters = 0.05f;
-    public float characterRate  = 0.5f;
+    public float scrollSpeed = 0.05f;
+    public float speedupRate = 0.5f;
 
     private bool _isStringBeingRevealed = false;
     private bool _isDialoguePlaying = false;
@@ -139,11 +139,11 @@ public class Dialogue : MonoBehaviour {
             {
                 if (Input.GetKey("space"))
                 {
-                    yield return new WaitForSeconds(TimeBetweenCharacters * characterRate);
+                    yield return new WaitForSeconds(scrollSpeed * speedupRate);
                 }
                 else
                 {
-                    yield return new WaitForSeconds(TimeBetweenCharacters);
+                    yield return new WaitForSeconds(scrollSpeed);
                 }
             }
 
