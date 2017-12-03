@@ -27,7 +27,7 @@ public class ProtagController : MonoBehaviour {
         if (inputVelocity.magnitude > 0.99f)
         {
             body.drag = 1;
-            body.AddForce(inputVelocity*moveForce);
+            body.AddForce(inputVelocity*moveForce*Time.deltaTime*60);
         } else
         {
             body.drag = 4;
