@@ -58,7 +58,6 @@ public class ProtagController : MonoBehaviour {
             
  //       Debug.Log(keys.Count);
  //         Debug.Log(faded);
-            //Debug.Log(particleCooldown);
 
     }
 
