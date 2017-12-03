@@ -13,8 +13,6 @@ public class ProtagController : MonoBehaviour {
 
     private TitlesController titles;
 
-    ParticleSystem  celebrateGoodTimes;
-    private float particleCooldown;
 
 
 	// Use this for initialization
@@ -27,10 +25,7 @@ public class ProtagController : MonoBehaviour {
         playerInventory.GetComponent<CanvasGroup>().alpha = 0f;
 
         titles = GameObject.Find("Titles").GetComponent<TitlesController>();
-        celebrateGoodTimes = GameObject.Find("Main Camera").GetComponent<ParticleSystem>();
-        celebrateGoodTimes.Pause();
-
-
+        
 	}
 	
 	// Update is called once per frame
@@ -85,8 +80,6 @@ public class ProtagController : MonoBehaviour {
                 if(keys.Count == 5)
                 {
                     titles.earnTitle("Le Charmant Collector");
-                     celebrateGoodTimes.Play();
-                     particleCooldown = 10; 
                             
                 }
 
@@ -110,15 +103,7 @@ public class ProtagController : MonoBehaviour {
                                         faded = true;
                                 
                                     }
-                             if(celebrateGoodTimes.isPlaying)
-                                {
-                                    particleCooldown -= .05f * Time.deltaTime * 60;    
-
-                                    if(particleCooldown <= 0)
-                                    {
-                                     celebrateGoodTimes.Stop();
-                                    }
-                                }   
+                             
                                       
                           } 
 }
