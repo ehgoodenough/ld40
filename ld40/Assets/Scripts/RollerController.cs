@@ -35,6 +35,7 @@ public class RollerController : MonoBehaviour {
             saved = true;
             GetComponent<Renderer>().material.color = new Color(.6f, .9f, 0, 1);
             puzzleScript.incrementScore();
+            GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip, 0.5f);
         }
     }
 }

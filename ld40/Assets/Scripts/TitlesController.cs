@@ -71,7 +71,7 @@ public class TitlesController : MonoBehaviour {
 
     public void win()
     {
-        this.status.text = "\n You are The Winner!!!!!! :] Nice job, mate!";
+        this.status.text = "\n You are The Winner!";
         this.status.GetComponent<Text>().fontSize = 40;
     }
 }

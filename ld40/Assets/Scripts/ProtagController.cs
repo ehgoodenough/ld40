@@ -69,7 +69,7 @@ public class ProtagController : MonoBehaviour {
                 
                 playerInventory.GetComponent<CanvasGroup>().alpha = 1f;
                 faded = false;
-                Destroy(coll.gameObject, 1f);
+                Destroy(coll.gameObject, 3f);
                 
                 if(keys.Count > 0)
                 {

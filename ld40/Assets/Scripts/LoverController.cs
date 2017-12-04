@@ -13,19 +13,25 @@ public class LoverController : MonoBehaviour {
 	public TextAsset firstDialogue;
 	public TextAsset secondDialogue;
 
+    private bool complete;
+
 	private bool hasBeenTalkedToByThem = false;
 
 	void Start() {
 		titles = GameObject.Find("Titles").GetComponent<TitlesController>();
 		dialogueUI = GameObject.Find("Dialogue Text").GetComponent<Dialogue>();
+        complete = false;
 	}
 
 	void Update() {
-		if(Vector3.Distance(otherLover.transform.position, transform.position) < TRIGGER_DISTANCE) {
+		if(Vector3.Distance(otherLover.transform.position, transform.position) < TRIGGER_DISTANCE && !complete) {
 			hasBeenTalkedToByThem = true;
             LoverController otherScript = otherLover.GetComponent<LoverController>();
             removeAlert();
             otherScript.removeAlert();
+            Destroy(otherScript);
+            GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip, 0.5f);
+            complete = true;
 			titles.earnTitle("Master Matchmaker");
 		}
 	}
