@@ -635,7 +635,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1036955111788376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.984924, y: 0.25, z: -16.5}
+  m_LocalPosition: {x: -35.856243, y: 0.25, z: -15.659928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4830098661822418}
@@ -1848,6 +1848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 1757511353798572}
   title: Ramp Maker Extraordinaire
+  linkedDoor: {fileID: 0}
 --- !u!114 &114685083910502890
 MonoBehaviour:
   m_ObjectHideFlags: 1

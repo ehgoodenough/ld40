@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697138536708512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: -43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4082482087356466}
@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 1171879891694052}
   title: Seeker of Red
+  linkedDoor: {fileID: 0}
 --- !u!114 &114760828423380426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -389,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 1611856697077334}
   title: Green Seeker
+  linkedDoor: {fileID: 0}
 --- !u!135 &135443038926244420
 SphereCollider:
   m_ObjectHideFlags: 1
