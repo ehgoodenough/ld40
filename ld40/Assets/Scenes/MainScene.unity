@@ -3706,6 +3706,47 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 83
       objectReference: {fileID: 0}
+    - target: {fileID: 114680176608473048, guid: 7fb8c26e8cc7aa74f83e134fd57abe16,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5619804535b4de844835011e6fc9137a,
+        type: 3}
+    - target: {fileID: 224891698759930468, guid: 7fb8c26e8cc7aa74f83e134fd57abe16,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224891698759930468, guid: 7fb8c26e8cc7aa74f83e134fd57abe16,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224891698759930468, guid: 7fb8c26e8cc7aa74f83e134fd57abe16,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 224891698759930468, guid: 7fb8c26e8cc7aa74f83e134fd57abe16,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 224891698759930468, guid: 7fb8c26e8cc7aa74f83e134fd57abe16,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 224891698759930468, guid: 7fb8c26e8cc7aa74f83e134fd57abe16,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114680176608473048, guid: 7fb8c26e8cc7aa74f83e134fd57abe16,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fb8c26e8cc7aa74f83e134fd57abe16, type: 2}
   m_IsPrefabParent: 0
@@ -3888,6 +3929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keysRequired: 3
+  unlockSound: {fileID: 0}
+  onHitSound: {fileID: 0}
 --- !u!1 &1608302812 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1570194148116064, guid: 9bf97dc22e8ebba4e9319a2281f85060,
@@ -3904,6 +3947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9278b6e40f67392488173ca3f41e935f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockSound: {fileID: 0}
+  onHitSound: {fileID: 0}
 --- !u!1 &1779978104
 GameObject:
   m_ObjectHideFlags: 0

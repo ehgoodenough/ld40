@@ -22,6 +22,9 @@ public class SoundOnHit : MonoBehaviour
 
     void OnCollisionEnter(Collision theCollision)
     {
-        source.PlayOneShot(soundClip, 1f);
+        if(theCollision.collider.name.StartsWith("Protag"))
+        {
+            source.PlayOneShot(soundClip, 1f);
+        }
     }
 }
