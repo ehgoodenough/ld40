@@ -7,6 +7,7 @@ public class VaseBreaker : MonoBehaviour {
 	private TitlesController titles;
     public GameObject door;
     bool complete;
+    public AudioClip breakSound;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,7 @@ public class VaseBreaker : MonoBehaviour {
                 titles.earnTitle("Breaker of Vases");
                 door.GetComponent<DoorScript>().unlock();
                 GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
+                GetComponent<AudioSource>().PlayOneShot(breakSound, 0.4f);
                 complete = true;
             }
         }
