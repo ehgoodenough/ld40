@@ -82,7 +82,6 @@ public class Dialogue : MonoBehaviour {
 
         while (currentDialogueIndex < dialogueLength || !_isStringBeingRevealed )
         {
-            Debug.Log(currentDialogueIndex);
             if (!_isStringBeingRevealed)
             {
                 _isStringBeingRevealed = true;
@@ -172,7 +171,6 @@ public class Dialogue : MonoBehaviour {
         _isStringBeingRevealed = false;
         _textComponent.text = "";
         _isEndofDialogue = true;
-        Debug.Log("the END of displayString happened");
 
     }
 
