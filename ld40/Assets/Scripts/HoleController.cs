@@ -6,6 +6,7 @@ public class HoleController : MonoBehaviour {
 
 	public GameObject ball;
 	private float TRIGGER_DISTANCE = 1f;
+    bool complete;
 
 	public string title;
 	private TitlesController titles;
@@ -14,24 +15,31 @@ public class HoleController : MonoBehaviour {
 
 	void Start() {
 		titles = GameObject.Find("Titles").GetComponent<TitlesController>();
+        complete = false;
 	}
 
 	void Update() {
-		if(Vector3.Distance(ball.transform.position, transform.position) < TRIGGER_DISTANCE) {
-			ball.GetComponent<Rigidbody>().isKinematic = true;
-			ball.transform.position = transform.position;
-			ball.transform.localScale = new Vector3(2f, 2f, 2f);
-            if(ball.name == "Purple Ball")
+        //Debug.Log(complete);
+        if (!complete)
+        {
+            if (Vector3.Distance(ball.transform.position, transform.position) < TRIGGER_DISTANCE)
             {
-                RampBallController ballScript = ball.GetComponent<RampBallController>();
-                ballScript.Cease();
+                ball.GetComponent<Rigidbody>().isKinematic = true;
+                ball.transform.position = transform.position;
+                ball.transform.localScale = new Vector3(2f, 2f, 2f);
+                if (ball.name == "Purple Ball")
+                {
+                    RampBallController ballScript = ball.GetComponent<RampBallController>();
+                    ballScript.Cease();
+                }
+                else
+                {
+                    DoorScript doorScript = linkedDoor.GetComponent<DoorScript>();
+                    doorScript.unlock();
+                }
+                titles.earnTitle(title);
+                complete = true;
             }
-            else
-            {
-                DoorScript doorScript = linkedDoor.GetComponent<DoorScript>();
-                doorScript.unlock();
-            }
-            titles.earnTitle(title);
-		}
+        }
 	}
 }
