@@ -23,7 +23,7 @@ public class TitleCounterController : MonoBehaviour {
         }
     }
 
-	void OnTriggerExit(Collider collider) {
+    void OnTriggerExit(Collider collider) {
         if(collider.name == "Protag") {
 			dialogueUI.UnloadDialogueAsset();
         }
