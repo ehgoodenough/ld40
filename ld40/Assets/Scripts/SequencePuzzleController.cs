@@ -31,6 +31,8 @@ public class SequencePuzzleController : MonoBehaviour {
         if (trueSoFar)
         {
             pillarStates[index] = true;
+            GetComponent<AudioSource>().pitch = index / 3.0f + 0.5f;
+            GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip);
         }
         else
         {
