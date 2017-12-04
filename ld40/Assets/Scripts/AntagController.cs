@@ -41,4 +41,9 @@ public class AntagController : MonoBehaviour {
         transform.GetChild(0).gameObject.SetActive(false);
         screenTextAsset.UnloadDialogueAsset();
     }
+
+    public void OnCollisionEnter(Collision coll)
+    {
+ 
+    }
 }
