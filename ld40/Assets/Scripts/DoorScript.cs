@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour {
     Component[] bodies;
+    public int keysRequired;
+    private int keysSoFar;
 
     // Use this for initialization
     void Start () {
+        keysSoFar = 0;
         bodies = GetComponentsInChildren<Rigidbody>();
         foreach(Rigidbody body in bodies)
         {
@@ -21,9 +24,13 @@ public class DoorScript : MonoBehaviour {
 
     public void unlock()
     {
-        foreach(Rigidbody body in bodies)
+        keysSoFar++;
+        if(keysSoFar >= keysRequired)
         {
-            body.isKinematic = false;
+            foreach (Rigidbody body in bodies)
+            {
+                body.isKinematic = false;
+            }
         }
     }
 }

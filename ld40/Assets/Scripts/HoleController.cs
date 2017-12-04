@@ -10,6 +10,8 @@ public class HoleController : MonoBehaviour {
 	public string title;
 	private TitlesController titles;
 
+    public GameObject linkedDoor;
+
 	void Start() {
 		titles = GameObject.Find("Titles").GetComponent<TitlesController>();
 	}
@@ -25,7 +27,9 @@ public class HoleController : MonoBehaviour {
                 ballScript.Cease();
             }
 
-			titles.earnTitle(title);
+            DoorScript doorScript = linkedDoor.GetComponent<DoorScript>();
+            doorScript.unlock();
+            titles.earnTitle(title);
 		}
 	}
 }

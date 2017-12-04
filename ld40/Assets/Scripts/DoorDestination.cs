@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorDestination : MonoBehaviour {
     private TitlesController titles;
+    public GameObject linkedDoor;
 
     // Use this for initialization
     void Start () {
@@ -19,7 +20,10 @@ public class DoorDestination : MonoBehaviour {
     {
         if(other.name == "Protag")
         {
+            DoorScript doorScript = linkedDoor.GetComponent<DoorScript>();
+            doorScript.unlock();
             titles.earnTitle("The Threshold Traverser");
+            Destroy(gameObject);
         }
     }
 }
