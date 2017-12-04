@@ -79,9 +79,11 @@ public class Dialogue : MonoBehaviour {
         int dialogueLength = Strings.Count;
         int currentDialogueIndex = 0;
 
-        while(currentDialogueIndex < dialogueLength || !_isStringBeingRevealed )
+
+        while (currentDialogueIndex < dialogueLength || !_isStringBeingRevealed )
         {
-            if(!_isStringBeingRevealed)
+            Debug.Log(currentDialogueIndex);
+            if (!_isStringBeingRevealed)
             {
                 _isStringBeingRevealed = true;
                 StartCoroutine(DisplayString(Strings[currentDialogueIndex++]));
@@ -169,6 +171,9 @@ public class Dialogue : MonoBehaviour {
 
         _isStringBeingRevealed = false;
         _textComponent.text = "";
+        _isEndofDialogue = true;
+        Debug.Log("the END of displayString happened");
+
     }
 
 
