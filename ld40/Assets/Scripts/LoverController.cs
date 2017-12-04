@@ -23,6 +23,9 @@ public class LoverController : MonoBehaviour {
 	void Update() {
 		if(Vector3.Distance(otherLover.transform.position, transform.position) < TRIGGER_DISTANCE) {
 			hasBeenTalkedToByThem = true;
+            LoverController otherScript = otherLover.GetComponent<LoverController>();
+            removeAlert();
+            otherScript.removeAlert();
 			titles.earnTitle("Master Matchmaker");
 		}
 	}
@@ -39,5 +42,10 @@ public class LoverController : MonoBehaviour {
         if(other.name == "Protag") {
             dialogueUI.UnloadDialogueAsset();
         }
+    }
+
+    public void removeAlert()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }

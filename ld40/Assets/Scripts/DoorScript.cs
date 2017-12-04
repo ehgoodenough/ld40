@@ -15,6 +15,10 @@ public class DoorScript : MonoBehaviour {
         {
             body.isKinematic = true;
         }
+        foreach(Renderer childRend in transform.GetComponentsInChildren<Renderer>())
+        {
+            childRend.material.color = new Color(0, 0, 0, 1);
+        }
 	}
 	
 	// Update is called once per frame
@@ -24,13 +28,18 @@ public class DoorScript : MonoBehaviour {
 
     public void unlock()
     {
-        keysSoFar++;
+        keysSoFar += 1;
         if(keysSoFar >= keysRequired)
         {
             foreach (Rigidbody body in bodies)
             {
                 body.isKinematic = false;
             }
+            foreach (Renderer childRend in transform.GetComponentsInChildren<Renderer>())
+            {
+                childRend.material.color = new Color(1, 1, 1, 1);
+            }
+            GameObject.Find("TitleCounter").transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

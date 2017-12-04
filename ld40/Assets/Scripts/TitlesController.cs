@@ -52,9 +52,9 @@ public class TitlesController : MonoBehaviour {
             celebrateGoodTimes.Play();
             particleCooldown = 10;
 
-            if (getTitleCount() >= 2)
+            if (getTitleCount() >= 10)
             {
-                lastDoor.GetComponent<DoorScript>().unlock();
+                lastDoor.GetComponent<FinalDoorScript>().Unlock();
             }
             this.score.text = titles.Count + "/" + MAXIMUM_TITLES;
 
