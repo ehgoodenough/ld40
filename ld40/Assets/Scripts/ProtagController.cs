@@ -70,7 +70,7 @@ public class ProtagController : MonoBehaviour {
                 {
                 GameObject newSlot = Instantiate(GameObject.Find("Slot"));
                 newSlot.transform.parent = GameObject.Find("Slot Panel").transform;
-                newSlot.transform.localScale = new Vector3(3, 2, 2);
+                newSlot.transform.localScale = new Vector3(4, 3, 1);
                 keys.Add(newSlot);
                 } else {
                         keys.Add(GameObject.Find("Slot"));
