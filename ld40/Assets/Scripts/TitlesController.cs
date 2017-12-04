@@ -52,6 +52,11 @@ public class TitlesController : MonoBehaviour {
             celebrateGoodTimes.Play();
             particleCooldown = 10;
 
+            foreach (Renderer rend in lastDoor.GetComponentsInChildren<Renderer>())
+            {
+                float value = Mathf.Max((getTitleCount() - 3)/10.0f, 0);
+                rend.material.color = new Color(value, value, value, 1);
+            }
             if (getTitleCount() >= 10)
             {
                 lastDoor.GetComponent<FinalDoorScript>().Unlock();

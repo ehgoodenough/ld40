@@ -7423,7 +7423,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -21108,6 +21108,40 @@ Prefab:
         type: 2}
       propertyPath: m_LocalPosition.x
       value: 244
+      objectReference: {fileID: 0}
+    - target: {fileID: 225041539265259820, guid: 02967d749003a234087ff276abb4bf8b,
+        type: 2}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718182729991186, guid: 02967d749003a234087ff276abb4bf8b,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bc46feea9cc4529b866847bd518d89,
+        type: 3}
+    - target: {fileID: 114840938808757800, guid: 02967d749003a234087ff276abb4bf8b,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bc46feea9cc4529b866847bd518d89,
+        type: 3}
+    - target: {fileID: 114718182729991186, guid: 02967d749003a234087ff276abb4bf8b,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Thanks for playing
+
+        Stake Your Acclaim
+
+
+        Send some feedback!
+
+        @ehgoodenough @BlandGoes @JoeShiraef'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718182729991186, guid: 02967d749003a234087ff276abb4bf8b,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02967d749003a234087ff276abb4bf8b, type: 2}

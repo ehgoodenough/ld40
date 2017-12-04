@@ -33,15 +33,16 @@ public class DoorScript : MonoBehaviour {
     public void unlock()
     {
         keysSoFar += 1;
+        foreach (Renderer childRend in transform.GetComponentsInChildren<Renderer>())
+        {
+            float value = keysSoFar * 1.0f / keysRequired;
+            childRend.material.color = new Color(value, value, value, 1);
+        }
         if (keysSoFar >= keysRequired && !unlocked)
         {
             foreach (Rigidbody body in bodies)
             {
                 body.isKinematic = false;
-            }
-            foreach (Renderer childRend in transform.GetComponentsInChildren<Renderer>())
-            {
-                childRend.material.color = new Color(1, 1, 1, 1);
             }
             GetComponent<AudioSource>().PlayOneShot(unlockSound, 1);
             GameObject.Find("TitleCounter").transform.GetChild(0).gameObject.SetActive(false);
