@@ -27,6 +27,8 @@ public class HoleController : MonoBehaviour {
                 ball.GetComponent<Rigidbody>().isKinematic = true;
                 ball.transform.position = transform.position;
                 ball.transform.localScale = new Vector3(2f, 2f, 2f);
+                GetComponent<AudioSource>().PlayOneShot(GetComponent<AudioSource>().clip, 1f);
+
                 if (ball.name == "Purple Ball")
                 {
                     RampBallController ballScript = ball.GetComponent<RampBallController>();

@@ -18,7 +18,7 @@ public class ProtagController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody>();
-        maxVelocity = 30f;
+        maxVelocity = 33f;
     
         keys = new List<GameObject>();
         playerInventory = GameObject.Find("InventoryGrid");
@@ -32,10 +32,7 @@ public class ProtagController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 position = transform.position;
-        Vector3 inputVelocity = Vector3.zero;
-        Vector3 moveDirection = Vector3.zero;
-        inputVelocity += new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveDirection = inputVelocity.normalized;
+        Vector3 inputVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
         float moveForce = Mathf.Max((maxVelocity - body.velocity.magnitude), 0);
         if (inputVelocity.magnitude > 0.99f)
         {
@@ -58,14 +55,21 @@ public class ProtagController : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision coll) {
-            
-                if(coll.gameObject.tag == "collectible")
+        if (coll.gameObject.tag == "collectible")
 		{
-			 //Debug.Log("collect it ");
+            AudioSource source = coll.collider.GetComponent<AudioSource>();
+            source.PlayOneShot(source.clip, 0.5f);
+            coll.collider.GetComponent<BoxCollider>().enabled = false;
+            foreach(Renderer renderer in coll.gameObject.GetComponentsInChildren<Renderer>())
+            {
+                renderer.enabled = false;
+            }
+
+			    //Debug.Log("collect it ");
                 
                 playerInventory.GetComponent<CanvasGroup>().alpha = 1f;
                 faded = false;
-                Destroy(coll.gameObject);
+                Destroy(coll.gameObject, 1f);
                 
                 if(keys.Count > 0)
                 {
