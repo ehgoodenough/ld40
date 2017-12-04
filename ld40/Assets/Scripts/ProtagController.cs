@@ -44,7 +44,7 @@ public class ProtagController : MonoBehaviour {
         {
             body.drag = 4;
         }
-        if(body.velocity.magnitude > 0.1f)
+        if(body.velocity.magnitude > 0.5f)
         {
             transform.LookAt(transform.position + body.velocity);
         }
