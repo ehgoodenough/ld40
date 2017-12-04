@@ -44,7 +44,6 @@ public class DoorScript : MonoBehaviour {
                 childRend.material.color = new Color(1, 1, 1, 1);
             }
             GetComponent<AudioSource>().PlayOneShot(unlockSound, 1);
-            Debug.Log(unlockSound);
             GameObject.Find("TitleCounter").transform.GetChild(0).gameObject.SetActive(false);
             unlocked = true;
             foreach (Transform child in transform)

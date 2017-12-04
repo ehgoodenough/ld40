@@ -13,7 +13,7 @@ public class ProtagController : MonoBehaviour {
 
     private TitlesController titles;
 
-
+    GameObject slotPanel;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +25,9 @@ public class ProtagController : MonoBehaviour {
         playerInventory.GetComponent<CanvasGroup>().alpha = 0f;
 
         titles = GameObject.Find("Titles").GetComponent<TitlesController>();
-        
-	}
+        slotPanel = GameObject.Find("Slot Panel");
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -69,7 +70,8 @@ public class ProtagController : MonoBehaviour {
                 if(keys.Count > 0)
                 {
                 GameObject newSlot = Instantiate(GameObject.Find("Slot"));
-                newSlot.transform.parent = GameObject.Find("Slot Panel").transform;
+                //newSlot.transform.parent = GameObject.Find("Slot Panel").transform;
+                newSlot.transform.SetParent(slotPanel.transform, false);
                 newSlot.transform.localScale = new Vector3(4, 3, 1);
                 keys.Add(newSlot);
                 } else {

@@ -19,7 +19,6 @@ public class FinalNPCController : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("check");
         if (collider.name == "Protag")
         {
             dialogueUI.LoadDialogueAsset(dialogue);
