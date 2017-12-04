@@ -26,9 +26,11 @@ public class HoleController : MonoBehaviour {
                 RampBallController ballScript = ball.GetComponent<RampBallController>();
                 ballScript.Cease();
             }
-
-            DoorScript doorScript = linkedDoor.GetComponent<DoorScript>();
-            doorScript.unlock();
+            else
+            {
+                DoorScript doorScript = linkedDoor.GetComponent<DoorScript>();
+                doorScript.unlock();
+            }
             titles.earnTitle(title);
 		}
 	}
